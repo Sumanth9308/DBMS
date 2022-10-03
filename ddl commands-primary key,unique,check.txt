@@ -1,0 +1,47 @@
+mysql>
+mysql> create table student2(s_id int primary key,name varchar(60) not null,age int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc student2;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| s_id  | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(60) | NO   |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+mysql> create table student3(s_id int not null,name varchar(60),age int not null unique);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student3;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| s_id  | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(60) | YES  |     | NULL    |       |
+| age   | int(11)     | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+
+
+mysql>
+mysql> create table student4(s_id int not null check(s_id>0),name varchar(60) not null,age int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student4;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| s_id  | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(60) | NO   |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> 
+
+
