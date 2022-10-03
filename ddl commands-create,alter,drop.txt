@@ -1,0 +1,51 @@
+
+mysql> create table student (reg int,name char,gender char,dob int,mobile int,city char);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc student;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| reg    | int(11) | YES  |     | NULL    |       |
+| name   | char(1) | YES  |     | NULL    |       |
+| gender | char(1) | YES  |     | NULL    |       |
+| dob    | int(11) | YES  |     | NULL    |       |
+| mobile | int(11) | YES  |     | NULL    |       |
+| city   | char(1) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql> alter table student add roll int;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| reg    | int(11) | YES  |     | NULL    |       |
+| name   | char(1) | YES  |     | NULL    |       |
+| gender | char(1) | YES  |     | NULL    |       |
+| dob    | int(11) | YES  |     | NULL    |       |
+| mobile | int(11) | YES  |     | NULL    |       |
+| city   | char(1) | YES  |     | NULL    |       |
+| roll   | int(11) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> alter table student drop roll;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++--------+---------+------+-----+---------+-------+
+| Field  | Type    | Null | Key | Default | Extra |
++--------+---------+------+-----+---------+-------+
+| reg    | int(11) | YES  |     | NULL    |       |
+| name   | char(1) | YES  |     | NULL    |       |
+| gender | char(1) | YES  |     | NULL    |       |
+| dob    | int(11) | YES  |     | NULL    |       |
+| mobile | int(11) | YES  |     | NULL    |       |
+| city   | char(1) | YES  |     | NULL    |       |
++--------+---------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
