@@ -1,0 +1,52 @@
+mysql> desc employe;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| emp_id   | int      | YES  |     | NULL    |       |
+| emp_name | char(30) | YES  |     | NULL    |       |
+| emp_dept | char(10) | YES  |     | NULL    |       |
+| emp_phno | int      | YES  |     | NULL    |       |
+| gender   | char(4)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into employe values ('101','sai','cse','846574079','m');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employe values ('101','reshma','cse','998940456','f');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employe values ('101','hari','ese','123409876','m');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from employe;
++--------+----------+----------+-----------+--------+
+| emp_id | emp_name | emp_dept | emp_phno  | gender |
++--------+----------+----------+-----------+--------+
+|    103 | pavan    | ece      | 846570966 | f      |
+|    103 | sreeja   | ece      | 846570966 | m      |
+|    103 | praveen  | ece      | 846570966 | m      |
+|    101 | sai      | cse      | 846574079 | m      |
+|    101 | reshma   | cse      | 998940456 | f      |
+|    101 | hari     | ese      | 123409876 | m      |
++--------+----------+----------+-----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employe where emp_name like '%s%';
++--------+----------+----------+-----------+--------+
+| emp_id | emp_name | emp_dept | emp_phno  | gender |
++--------+----------+----------+-----------+--------+
+|    103 | sreeja   | ece      | 846570966 | m      |
+|    101 | sai      | cse      | 846574079 | m      |
+|    101 | reshma   | cse      | 998940456 | f      |
++--------+----------+----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select emp_name from employe where gender='f';
++----------+
+| emp_name |
++----------+
+| pavan    |
+| reshma   |
++----------+
+2 rows in set (0.00 sec)

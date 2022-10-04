@@ -1,0 +1,57 @@
+mysql> create table empolye (emp_id int(4),emp_name char(30),emp_dept char(10),emp_phno int(20));
+Query OK, 0 rows affected, 2 warnings (0.12 sec)
+
+mysql> desc empolye;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| emp_id   | int      | YES  |     | NULL    |       |
+| emp_name | char(30) | YES  |     | NULL    |       |
+| emp_dept | char(10) | YES  |     | NULL    |       |
+| emp_phno | int      | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+4 rows in set (0.08 sec)
+
+mysql> insert into empolye values ('101','sathya','cse','998915428');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into empolye values ('102','lokesh','aids','83174456');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into empolye values ('103','pavan','ece','846570966');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from empolye;
++--------+----------+----------+-----------+
+| emp_id | emp_name | emp_dept | emp_phno  |
++--------+----------+----------+-----------+
+|    101 | sathya   | cse      | 998915428 |
+|    102 | lokesh   | aids     |  83174456 |
+|    103 | pavan    | ece      | 846570966 |
++--------+----------+----------+-----------+
+3 rows in set (0.07 sec)
+
+mysql> update empolye set emp_phno = 987645678 where emp_name = 'lokesh';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from empolye;
++--------+----------+----------+-----------+
+| emp_id | emp_name | emp_dept | emp_phno  |
++--------+----------+----------+-----------+
+|    101 | sathya   | cse      | 998915428 |
+|    102 | lokesh   | aids     | 987645678 |
+|    103 | pavan    | ece      | 846570966 |
++--------+----------+----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> delete from empolye where emp_id='102';
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from empolye;
++--------+----------+----------+-----------+
+| emp_id | emp_name | emp_dept | emp_phno  |
++--------+----------+----------+-----------+
+|    101 | sathya   | cse      | 998915428 |
+|    103 | pavan    | ece      | 846570966 |
++--------+----------+----------+-----------+
