@@ -1,0 +1,180 @@
+
+mysql> create table student5(name varchar(6),reg int(10),dob int(10),city varchar(8));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc student5;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| name  | varchar(6) | YES  |     | NULL    |       |
+| reg   | int(10)    | YES  |     | NULL    |       |
+| dob   | int(10)    | YES  |     | NULL    |       |
+| city  | varchar(8) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+mysql> insert into student5 values ('sunil','192124114','10','nellore');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student5;
++-------+-----------+------+---------+
+| name  | reg       | dob  | city    |
++-------+-----------+------+---------+
+| sunil | 192124114 |   10 | nellore |
++-------+-----------+------+---------+
+1 row in set (0.00 sec)
+
+
+
+mysql> insert into student5 values ('sunil','192124114','11411','nellore');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc student5;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| name  | varchar(6) | YES  |     | NULL    |       |
+| reg   | int(10)    | YES  |     | NULL    |       |
+| dob   | int(10)    | YES  |     | NULL    |       |
+| city  | varchar(8) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+4 rows in set (0.09 sec)
+
+mysql> insert into student5 values ('sunil','192124114','11411','nellore');
+Query OK, 1 row affected (0.01 sec)
+
+
+select * from student5' at line 4
+mysql> select * from student5;
++-------+-----------+-------+---------+
+| name  | reg       | dob   | city    |
++-------+-----------+-------+---------+
+| sunil | 192124114 |    10 | nellore |
+| sunil | 192124114 |   114 | nellore |
+| sunil | 192124114 | 11411 | nellore |
+| sunil | 192124114 | 11411 | nellore |
++-------+-----------+-------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student5 where dob between 10 and 114;
++-------+-----------+------+---------+
+| name  | reg       | dob  | city    |
++-------+-----------+------+---------+
+| sunil | 192124114 |   10 | nellore |
+| sunil | 192124114 |  114 | nellore |
++-------+-----------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> desc student5;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| name  | varchar(6) | YES  |     | NULL    |       |
+| reg   | int(10)    | YES  |     | NULL    |       |
+| dob   | int(10)    | YES  |     | NULL    |       |
+| city  | varchar(8) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql>  select * from student5;
++-------+-----------+-------+---------+
+| name  | reg       | dob   | city    |
++-------+-----------+-------+---------+
+| sunil | 192124114 |    10 | nellore |
+| sunil | 192124114 |   114 | nellore |
+| sunil | 192124114 | 11411 | nellore |
+| sunil | 192124114 | 11411 | nellore |
++-------+-----------+-------+---------+
+4 rows in set (0.00 sec)
+
+mysql>  select * from student5 where dob in ('10','114');
++-------+-----------+------+---------+
+| name  | reg       | dob  | city    |
++-------+-----------+------+---------+
+| sunil | 192124114 |   10 | nellore |
+| sunil | 192124114 |  114 | nellore |
++-------+-----------+------+---------+
+2 rows in set (0.01 sec)
+
+mysql>
+
+
+mysql>
+
+mysql> create table student6(name varchar(45),reg int(34),dob int(133),salary int(225),dept varchar(45),city varchar(32));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student6;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(45) | YES  |     | NULL    |       |
+| reg    | int(34)     | YES  |     | NULL    |       |
+| dob    | int(133)    | YES  |     | NULL    |       |
+| salary | int(225)    | YES  |     | NULL    |       |
+| dept   | varchar(45) | YES  |     | NULL    |       |
+| city   | varchar(32) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+
+mysql> insert into student6 values ('sunil','12','111','210','cse','nellore');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into student6 values ('varma','11','100','200','cse','chittor');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student6 values ('ravi','13','105','205','eee','kerala');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into student6 values ('raju','15','110','210','ece','chennai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student6 values ('sarth','16','101','201','mech','tirupathi');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student6;
++-------+------+------+--------+------+-----------+
+| name  | reg  | dob  | salary | dept | city      |
++-------+------+------+--------+------+-----------+
+| sunil |   12 |  111 |    210 | cse  | nellore   |
+| varma |   11 |  100 |    200 | cse  | chittor   |
+| ravi  |   13 |  105 |    205 | eee  | kerala    |
+| raju  |   15 |  110 |    210 | ece  | chennai   |
+| sarth |   16 |  101 |    201 | mech | tirupathi |
++-------+------+------+--------+------+-----------+
+5 rows in set (0.00 sec)
+
+
+mysql> select max(salary) from student6;
++-------------+
+| max(salary) |
++-------------+
+|         210 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(salary) from student6;
++---------------+
+| count(salary) |
++---------------+
+|             5 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from student6;
++-------------+
+| min(salary) |
++-------------+
+|         200 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from student6;
++-------------+
+| sum(salary) |
++-------------+
+|        1026 |
++-------------+
+1 row in set (0.00 sec)
