@@ -1,0 +1,58 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| department         |
+| empolyee           |
+| mysql              |
+| performance_schema |
+| student            |
+| sumanth            |
+| sumanth1           |
+| test               |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+
+mysql> DELIMITER $$
+mysql> CREATE PROCEDURE LoopDemo()
+    -> BEGIN
+    -> DECLARE x  INT;
+    -> DECLARE str  VARCHAR(255);
+    ->
+    -> SET x = 1;
+    -> SET str =  '';
+    ->
+    -> loop_label:  LOOP
+    -> IF  x > 10 THEN
+    -> LEAVE  loop_label;
+    -> END  IF;
+    ->
+    -> SET  x = x + 1;
+    -> IF  (x mod 2) THEN
+    -> ITERATE  loop_label;
+    -> ELSE
+    -> SET  str = CONCAT(str,x,',');
+    -> END  IF;
+    -> END LOOP;
+    -> SELECT str;
+    -> END$$
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> call loopdemo();
++-------------+
+| str         |
++-------------+
+| 2,4,6,8,10, |
++-------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+
