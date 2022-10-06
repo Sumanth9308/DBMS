@@ -1,0 +1,41 @@
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| agent              |
+| customer           |
+| employee           |
+| faculty            |
+| mysql              |
+| performance_schema |
+| product            |
+| test               |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> create table employee(emp_no int(3) auto_increment primary key,emp_name varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into employee(emp_name) values ('charan');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employee(emp_name) values ('ramesh');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into employee(emp_name) values ('raju');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+|      1 | charan   |
+|      2 | ramesh   |
+|      3 | raju     |
++--------+----------+
+3 rows in set (0.00 sec)
