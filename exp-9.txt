@@ -1,0 +1,49 @@
+
+
+mysql> select * from faculty;
++--------------------+--------------+--------+---------------+------------+
+| faculty_identifier | faculty_name | gender | date_of_birth | first_name |
++--------------------+--------------+--------+---------------+------------+
+| 1                  | uma          | f      |          1992 | malikarjun  |
++--------------------+--------------+--------+---------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from faculty1;
++--------------+--------+
+| faculty_name | gender |
++--------------+--------+
+| uma          | f      |
++--------------+--------+
+1 row in set (0.00 sec)
+
+mysql>  select faculty.faculty_identifier,faculty1.faculty_name,faculty1.gender from faculty inner join faculty1 on faculty.gender=faculty1.gender;
++--------------------+--------------+--------+
+| faculty_identifier | faculty_name | gender |
++--------------------+--------------+--------+
+| 1                  | uma          | f      |
++--------------------+--------------+--------+
+1 row in set (0.00 sec)
+
+mysql>  select faculty.faculty_identifier,faculty1.faculty_name,faculty1.gender from faculty left join faculty1 on faculty.gender=faculty1.gender order by faculty.faculty_identifier;
++--------------------+--------------+--------+
+| faculty_identifier | faculty_name | gender |
++--------------------+--------------+--------+
+| 1                  | uma          | f      |
++--------------------+--------------+--------+
+1 row in set (0.02 sec)
+
+mysql>  select faculty.faculty_identifier,faculty1.faculty_name,faculty1.gender from faculty right join faculty1 on faculty.gender=faculty1.gender order by faculty1.faculty_name;
++--------------------+--------------+--------+
+| faculty_identifier | faculty_name | gender |
++--------------------+--------------+--------+
+| 1                  | uma          | f      |
++--------------------+--------------+--------+
+1 row in set (0.00 sec)
+
+mysql>  select faculty.faculty_identifier,faculty1.faculty_name from faculty cross join faculty1;
++--------------------+--------------+
+| faculty_identifier | faculty_name |
++--------------------+--------------+
+| 1                  | uma         |
++--------------------+--------------+
+1 row in set (0.00 sec)
