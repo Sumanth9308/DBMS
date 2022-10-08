@@ -1,0 +1,92 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| employee           |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+
+mysql> desc employee;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| emp_id     | int(12)  | YES  |     | NULL    |       |
+| emp_name   | char(15) | YES  |     | NULL    |       |
+| emp_gender | char(7)  | YES  |     | NULL    |       |
+| emp_salary | int(15)  | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table employe(id int(12),name char(16),gender char(14),mobile int(20),salary int(200));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc employe;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| id     | int(12)  | YES  |     | NULL    |       |
+| name   | char(16) | YES  |     | NULL    |       |
+| gender | char(14) | YES  |     | NULL    |       |
+| mobile | int(20)  | YES  |     | NULL    |       |
+| salary | int(200) | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+
+mysql> insert into employe values('1','suresh','m','694905849','150');
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> insert into employe values('2','siri','f','780644998','160');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employe values('3','raju','m','890644998','170');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employe values('4','ramu','m','230644998','180');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employe values('5','vani','f','20644998','190');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employe;
++------+--------+--------+-----------+--------+
+| id   | name   | gender | mobile    | salary |
++------+--------+--------+-----------+--------+
+|    1 | suresh | m      | 694905849 |    150 |
+|    2 | siri   | f      | 780644998 |    160 |
+|    3 | raju   | m      | 890644998 |    170 |
+|    4 | ramu   | m      | 230644998 |    180 |
+|    5 | vani   | f      |  20644998 |    190 |
++------+--------+--------+-----------+--------+
+5 rows in set (0.01 sec)
+
+
+mysql> select name,gender from employe where salary<(select avg(salary) from employe);
++--------+--------+
+| name   | gender |
++--------+--------+
+| suresh | m      |
+| siri   | f      |
++--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select name,gender from employe where exists(select avg(salary) from employe);
++--------+--------+
+| name   | gender |
++--------+--------+
+| suresh | m      |
+| siri   | f      |
+| raju   | m      |
+| ramu   | m      |
+| vani   | f      |
++--------+--------+
+5 rows in set (0.00 sec)
